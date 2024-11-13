@@ -8,6 +8,8 @@ const links = document.querySelectorAll(".nav-link");
 
 const toggle_btn = document.querySelector(".toggle-btn");
 
+const hamburger = document.querySelector(".hamburger");
+
 window.addEventListener("scroll", () =>{
     activeLink();
     if(!skillsPlayed) skillsCounter();
@@ -97,3 +99,18 @@ function activeLink(){
 }
 
 activeLink();
+
+
+/* ---------- Open & Close Navbar Menu ---------- */
+
+hamburger.addEventListener("click", () => {
+    document.body.classList.toggle("open");
+    document.body.classList.toggle("stopScrolling");
+});
+
+links.forEach((link) => 
+    link.addEventListener("click", () => {
+        document.body.classList.remove("open");
+        document.body.classList.remove("stopScrolling");
+    })
+);
